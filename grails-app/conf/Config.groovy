@@ -1,10 +1,10 @@
-grails.config.locations = [
+/*grails.config.locations = [
 	"classpath:${appName}-config.groovy",
 	"file:./${appName}-config.groovy"]
 
 if (System.properties["${appName}.config.location"]) {
 	grails.config.locations << "file:" + System.properties["${appName}.config.location"]
-}
+}*/
 
 grails.controllers.defaultScope = 'singleton'
 grails.converters.encoding = "UTF-8"
@@ -59,8 +59,15 @@ grails {
 environments {
 	development {
 		grails.logging.jul.usebridge = true
+        log4j = {
+            debug  'mn.xenon'
+            debug 'grails.app.jobs'
+        }
 	}
 	production {
+        grails.serverURL = "http://menu.mn"
+        grails.config.locations = ["file:/opt/tomcat/menu_config.properties"]
+        grails.mail.default.from = "noreply@menu.mn"
 		grails.logging.jul.usebridge = false
 	}
 }
@@ -72,8 +79,18 @@ log4j = {
 	      'net.sf.ehcache.hibernate'
 }
 
+grails.plugin.springsecurity.rejectIfNoRule = false
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false
+grails.plugin.springsecurity.securityConfigType = "Annotation"
+grails.plugin.springsecurity.useSessionFixationPrevention = false
+grails.plugin.springsecurity.sessionFixationPrevention.alwaysCreateSession = true
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
+    '/login':           ['permitAll'],
+    '/j_spring_security_facebook_redirect':           ['permitAll'],
+    '/j_spring_security_facebook_check':           ['permitAll'],
+    '/logout':          ['permitAll'],
 	'/index':           ['permitAll'],
 	'/index.gsp':       ['permitAll'],
 	'/**/js/**':        ['permitAll'],
@@ -81,3 +98,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll']
 ]
+
+
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'auth.User'
+grails.plugin.springsecurity.facebook.domain.classname='auth.User'
+grails.plugin.springsecurity.facebook.appId='629850093771846'
+grails.plugin.springsecurity.facebook.secret='3d5876118f7c409eaa314af9d081328e'
+grails.plugin.springsecurity.facebook.permissions='email,user_about_me,user_birthday,user_location'

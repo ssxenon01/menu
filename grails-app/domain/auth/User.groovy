@@ -1,31 +1,46 @@
 package auth
 
+import mn.xenon.auth.Gender
 import org.bson.types.ObjectId
 
-class User {
+class User implements Serializable{
 
 	static mapWith = 'mongo'
+
+    static expose = 'user'
 
 	transient springSecurityService
 
 	ObjectId id
 	String username
 	String password
-	String email
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
 
-	Set<Role> authorities
+    String firstname
+    String lastname
+    Date birthDate
+    Gender gender = Gender.Other
+    /*facebook section*/
+    String facebookId
+    String accessToken
+    Date accessTokenExpires
+
+    static hasMany = [authorities:String]
+
 	static embedded = ['authorities']
 
 	static transients = ['springSecurityService']
 
 	static constraints = {
-		username blank: false, unique: true, size: 2..32,matches: "[a-zA-Z0-9_]+"
-		email blank: false, unique: true, email: true
-		password blank: false, size: 6..64
+		username blank: false, unique: true,email: true
+		password blank: false
+        facebookId nullable: true
+        accessTokenExpires nullable: true
+        accessToken nullable: true
+        birthDate nullable: true
 	}
 
 	def beforeInsert() {

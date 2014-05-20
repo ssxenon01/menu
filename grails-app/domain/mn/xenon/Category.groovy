@@ -8,7 +8,7 @@ class Category implements Serializable{
     ObjectId id
 
     String name
-    String desription
+    String description
     String suffix
 
     Category parent
@@ -25,7 +25,7 @@ class Category implements Serializable{
 
         parent nullable: true
         lastUpdated nullable: true
-        desription nullable: true
+        description nullable: true
         mapIcon nullable:true
         author nullable: true
     }

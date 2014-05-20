@@ -33,8 +33,10 @@ class Tenant implements Serializable{
     Category category
 
     List galleryList = []
+    String profileImage
 
     Date dateCreated = new Date()
+    Date lastUpdated
 
     Boolean featured = false
     Date featuredUntil
@@ -101,7 +103,7 @@ class Tenant implements Serializable{
     Boolean withSexyPeople              = false
     Boolean withFireplace               = false
     Boolean reservation                 = false
-    Boolean reservationPhone
+    String  reservationPhone
     Boolean delivery                    = false
     Boolean takeOut                     = false
     Boolean creditCard                  = false
@@ -111,23 +113,36 @@ class Tenant implements Serializable{
 
 
     static constraints = {
-        author nullable: true
-        manager nullable: true
-        reviewList(nullable: true)
-        checkInList(nullable: true)
-        galleryList(nullable: true)
-        description(nullable: true)
-        reviewCount(nullable: true)
-        checkInCount(nullable: true)
-        location(nullable: true)
-        address(nullable: true)
-        phone(nullable: true)
-        category(nullable: true)
-        website(nullable: true)
-        adminList(nullable: true)
-        featured nullable: true
-        featuredUntil nullable: true
-        locationStr nullable: true
-        reservationPhone nullable: true
+        author              nullable:true
+        manager             nullable:true
+        lastUpdated         nullable:true
+        reviewList          nullable:true
+        checkInList         nullable:true
+        galleryList         nullable:true
+        description         nullable:true
+        reviewCount         nullable:true
+        checkInCount        nullable:true
+        location            nullable:true
+        address             nullable:true
+        phone               nullable:true
+        mobile              nullable:true
+        category            nullable:true
+        website             nullable:true
+        adminList           nullable:true
+        featured            nullable:true
+        featuredUntil       nullable:true
+        locationStr         nullable:true
+        reservationPhone    nullable:true
+        facebookUrl         nullable:true
+        twitterId           nullable:true
+        googlePlusId        nullable:true
+        linkedIn            nullable:true
+        youtube             nullable:true
+        instagram           nullable:true
+        pinterest           nullable:true
+        flickr              nullable:true
+        website             nullable:true
+        email               nullable:true
+        profileImage        nullable:true
     }
 }

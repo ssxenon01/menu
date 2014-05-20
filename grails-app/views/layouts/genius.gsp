@@ -351,8 +351,8 @@
             <div class="sidebar-nav nav-collapse collapse navbar-collapse ">
                 <ul class="nav main-menu">
                     <li><a href="${g.createLink(uri:'/admin')}"><i class="fa fa-bar-chart-o"></i><span class="hidden-sm text"> Dashboard</span></a></li>
-                    <li><a href="${g.createLink(uri:'/admin/tenant')}"><i class="fa fa-building-o"></i><span class="hidden-sm text"> Tenant List</span></a></li>
-                    <li><a href="${g.createLink(uri:'/admin/category')}"><i class="fa fa-user"></i><span class="hidden-sm text">Category List</span></a></li>
+                    <li><a href="${g.createLink(uri:'/tenant')}"><i class="fa fa-building-o"></i><span class="hidden-sm text"> Tenant List</span></a></li>
+                    <li><a href="${g.createLink(uri:'/category')}"><i class="fa fa-user"></i><span class="hidden-sm text">Category List</span></a></li>
                     <li><a href="${g.createLink(uri:'/admin')}"><i class="fa fa-inbox"></i><span class="hidden-sm text">Invoice List</span></a></li>
                     <li><a href="${g.createLink(uri:'/admin')}"><i class="fa fa-bookmark-o"></i><span class="hidden-sm text">Sector List</span></a></li>
                     <li><a href="${g.createLink(uri:'/admin')}"><i class="fa fa-picture-o"></i><span class="hidden-sm text"> Gallery</span></a></li>

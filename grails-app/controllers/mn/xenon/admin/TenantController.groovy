@@ -1,6 +1,8 @@
-package mn.xenon
+package mn.xenon.admin
 
+import auth.User
 import grails.plugin.springsecurity.annotation.Secured
+import mn.xenon.Tenant
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -30,7 +32,7 @@ class TenantController {
             notFound()
             return
         }
-        tenantInstance.author = springSecurityService.currentUser
+        tenantInstance.author = springSecurityService.currentUser as User
         if (tenantInstance.hasErrors()) {
             respond tenantInstance.errors, view: 'create'
             return
@@ -57,7 +59,7 @@ class TenantController {
             notFound()
             return
         }
-
+          println(tenantInstance.location)
         if (tenantInstance.hasErrors()) {
             respond tenantInstance.errors, view: 'edit'
             return

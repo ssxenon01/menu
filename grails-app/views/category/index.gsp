@@ -35,7 +35,6 @@
                                 <th>Name</th>
                                 <th>Date created</th>
                                 <th>Date lastUpdated</th>
-                                <th>Description</th>
                                 <th>mapIcon</th>
                                 <th>Actions</th>
                             </tr>
@@ -44,7 +43,6 @@
                             <g:each in="${categoryInstanceList}" status="i" var="categoryInstance">
                                 <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                                     <td>${fieldValue(bean: categoryInstance, field: "name")}</td>
-                                    <td>${fieldValue(bean: categoryInstance, field: "desription")}</td>
                                     <td><g:formatDate date="${categoryInstance.dateCreated}" /></td>
                                     <td><g:formatDate date="${categoryInstance.lastUpdated}" /></td>
                                     <td>${fieldValue(bean: categoryInstance, field: "mapIcon")}</td>
@@ -85,7 +83,7 @@
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'category.dateCreated.label', default: 'Date Created')}" />
 					
-						<g:sortableColumn property="desription" title="${message(code: 'category.desription.label', default: 'Desription')}" />
+						<g:sortableColumn property="description" title="${message(code: 'category.description.label', default: 'description')}" />
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'category.lastUpdated.label', default: 'Last Updated')}" />
 					
@@ -103,7 +101,7 @@
 					
 						<td><g:formatDate date="${categoryInstance.dateCreated}" /></td>
 					
-						<td>${fieldValue(bean: categoryInstance, field: "desription")}</td>
+						<td>${fieldValue(bean: categoryInstance, field: "description")}</td>
 					
 						<td><g:formatDate date="${categoryInstance.lastUpdated}" /></td>
 					

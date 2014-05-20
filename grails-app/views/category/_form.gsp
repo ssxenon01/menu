@@ -19,14 +19,14 @@
         <g:message code="category.parent.label" default="Parent" />
 
     </label>
-    <g:select id="parent" name="parent.id" from="${mn.xenon.Category.list()}" optionKey="id" optionValue="name" value="${categoryInstance?.parent?.id}" class="many-to-one form-control"/>
+    <g:select id="parent" name="parent.id" from="${mn.xenon.Category.findAllByIdNotEqual(categoryInstance?.id)}" optionKey="id" optionValue="name" value="${categoryInstance?.parent?.id}" class="many-to-one form-control"/>
 </div>
-<div class="form-group ${hasErrors(bean: categoryInstance, field: 'desription', 'has-error')} ">
-	<label for="desription">
-		<g:message code="category.desription.label" default="Desription" />
+<div class="form-group ${hasErrors(bean: categoryInstance, field: 'description', 'has-error')} ">
+	<label for="description">
+		<g:message code="category.description.label" default="description" />
 		
 	</label>
-	<g:textArea name="desription" value="${categoryInstance?.desription}" class="form-control"/>
+	<g:textArea name="description" value="${categoryInstance?.description}" class="form-control"/>
 </div>
 
 <div class="form-group ${hasErrors(bean: categoryInstance, field: 'mapIcon', 'has-error')} ">

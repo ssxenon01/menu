@@ -37,6 +37,13 @@
 	</label>
 	<g:select id="category" name="category.id" from="${mn.xenon.Category.list()}" optionKey="id" optionValue="name" value="${tenantInstance?.category?.id}" class="many-to-one form-control"/>
 </div>
+<div class="form-group ${hasErrors(bean: tenantInstance, field: 'manager', 'has-error')} ">
+	<label class="control-label" for="manager">
+		<g:message code="tenant.manager.label" default="Manager" />
+
+	</label>
+	<g:select id="manager" name="manager.id" from="${auth.User.list()}" optionKey="id" optionValue="username" value="${tenantInstance?.manager?.id}" class="many-to-one form-control"/>
+</div>
 
 
 %{--<div class="form-group ${hasErrors(bean: tenantInstance, field: 'location', 'has-error')} ">
@@ -195,6 +202,25 @@
                 <g:textField name="website" class="form-control" value="${tenantInstance?.website}" />
             </div>
             <span class="help-block">ex. http://www.google.com</span>
+        </div>
+    </div>
+
+    <div class="form-group col-md-12 col-xs-12">
+        <div class="controls">
+            <div class="col-md-6 col-sm-8 col-xs-12">
+                <label for="featured"><g:message code="tenant.featured.label" default="Featured" /></label>
+                <label class="switch switch-primary">
+                    <g:checkBox name="featured" class="switch-input" value="${tenantInstance.featured}" onchange="\$('.featuredUntil-field').toggle()" />
+                    <span class="switch-label" data-on="Yes" data-off="No"></span>
+                    <span class="switch-handle"></span>
+                </label>
+            </div>
+        </div>
+        <div class="controls featuredUntil-field" style="display: none;">
+            <div class="input-group">
+                <span class="input-group-addon"><label for="featuredUntil"><g:message code="tenant.featuredUntil.label" default="Featured Until" /></label></span>
+                <g:datePicker name="featuredUntil" class="form-control" value="${tenantInstance?.featuredUntil}"  precision="day" relativeYears="[0..7]" noSelection="${['':'--']}" default="none"/>
+            </div>
         </div>
     </div>
 

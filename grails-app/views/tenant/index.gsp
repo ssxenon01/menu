@@ -36,7 +36,7 @@
                             <th>Date created</th>
                             <th>Date lastUpdated</th>
                             <th>Status</th>
-                            <th>Actions</th>
+                            <th style="width: 133px;">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -58,9 +58,11 @@
                                     </g:else>
                                 </td>
                                 <td>
+                                    <g:link action="show" class="btn btn-success"  id="${tenantInstance.id}"><i class="fa fa-search "></i></g:link>
                                     <g:link action="edit" class="btn btn-info"  id="${tenantInstance.id}"><i class="fa fa-edit "></i></g:link>
                                     <g:form url="[resource:tenantInstance, action:'delete']" method="DELETE" style="display:inline-block;">
-                                        <g:actionSubmit class="delete btn btn-danger" action="delete" value="DELETE" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                        <input type="hidden" name="_method" value="DELETE" id="_method">
+                                        <button name="_action_delete" type="submit" class="btn btn-danger" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"><i class="fa fa-trash-o "></i></button>
                                     </g:form>
                                 </td>
                             </tr>

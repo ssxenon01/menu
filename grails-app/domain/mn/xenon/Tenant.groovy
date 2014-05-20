@@ -15,8 +15,6 @@ class Tenant implements Serializable{
     ObjectId id
     String name
     String description
-    List reviewList = []
-    List checkInList = []
     Integer reviewCount = 0
     Integer checkInCount = 0
     Map location
@@ -116,8 +114,6 @@ class Tenant implements Serializable{
         author              nullable:true
         manager             nullable:true
         lastUpdated         nullable:true
-        reviewList          nullable:true
-        checkInList         nullable:true
         galleryList         nullable:true
         description         nullable:true
         reviewCount         nullable:true
